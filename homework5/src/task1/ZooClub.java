@@ -1,5 +1,8 @@
 package task1;
 
+import task2.Days;
+import task2.Schedule;
+
 import java.util.*;
 
 public class ZooClub{
@@ -19,6 +22,7 @@ public class ZooClub{
     public void setClub(Map<Person, List<Pet>> club) {
         this.club = club;
     }
+
 
     @Override
     public String toString() {
