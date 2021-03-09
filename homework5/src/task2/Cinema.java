@@ -63,4 +63,13 @@ public class Cinema {
         }
     }
 
+
+    @Override
+    public String toString() {
+        return "Cinema{" +
+                "treeMap=" + treeMap +
+                ", open=" + open +
+                ", close=" + close +
+                '}';
+    }
 }
