@@ -15,8 +15,14 @@ public class ClientController {
     private ClientDAO clientDAO;
 
     @GetMapping("/saveClient")
-    public void saveClient(@RequestParam String firstName, String lastName, String education, String passport, String city, int age){
-        Client client = new Client(firstName, lastName, education, passport, city, age);
+    public void saveClient(@RequestParam String firstName,
+                           @RequestParam String lastName,
+                           @RequestParam String education,
+                           @RequestParam String passport,
+                           @RequestParam String city,
+                           @RequestParam int age,
+                           @RequestParam int idDep){
+        Client client = new Client(firstName, lastName, education, passport, city, age, idDep);
         clientDAO.save(client);
     }
 
