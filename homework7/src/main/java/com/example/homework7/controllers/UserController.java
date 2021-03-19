@@ -1,6 +1,7 @@
 package com.example.homework7.controllers;
 
 import com.example.homework7.dao.UserDAO;
+import com.example.homework7.models.Car;
 import com.example.homework7.models.Product;
 import com.example.homework7.models.User;
 import lombok.AllArgsConstructor;
@@ -24,8 +25,8 @@ public class UserController {
         return userDAO.findAll();
     }
 
-    @GetMapping("/save")
-    public void saveUser(@RequestParam String name, int age, String productName){
+    @GetMapping("/saveWithProduct")
+    public void saveWithProduct(@RequestParam String name, int age, String productName){
         User user = new User();
         Product product = new Product();
         List<Product> products = new ArrayList<>();
@@ -36,6 +37,21 @@ public class UserController {
         user.setProducts(products);
         userDAO.save(user);
     }
+
+    @GetMapping("/saveWithCars")
+    public void saveWithCars(@RequestParam String name, int age, String model){
+        User user = new User();
+        Car car = new Car();
+        List<Car> cars = new ArrayList<>();
+        car.setModel(model);
+        cars.add(car);
+        user.setName(name);
+        user.setAge(age);
+        user.setCars(cars);
+        userDAO.save(user);
+    }
+
+
 
 
 }

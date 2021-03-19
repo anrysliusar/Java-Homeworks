@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @Getter
 @EqualsAndHashCode
-@ToString(exclude = {"products"})
+@ToString(exclude = {"products", "cars"})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,10 @@ public class User {
     private String name;
     private int age;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.ALL})
+    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private List<Product> products = new ArrayList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Car> cars = new ArrayList<>();
 }
