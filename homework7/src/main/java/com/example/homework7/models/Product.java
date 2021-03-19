@@ -20,5 +20,6 @@ public class Product {
     private String name;
 
     @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @JsonIgnore
     private User user;
 }
