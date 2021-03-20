@@ -4,10 +4,12 @@ import com.example.homework7.dao.UserDAO;
 import com.example.homework7.models.User;
 import com.example.homework7.services.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @AllArgsConstructor
+@Service("userService")
 public class UserServiceImplementation implements UserService {
     private UserDAO userDAO;
 
