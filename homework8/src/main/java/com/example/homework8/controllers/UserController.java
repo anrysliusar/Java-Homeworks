@@ -11,11 +11,11 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/users")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class UserController {
     private UserDAO userDAO;
 
-    @PostMapping("/save")
+    @PostMapping()
     public void saveUser(@RequestBody User user){
         userDAO.save(user);
     }
