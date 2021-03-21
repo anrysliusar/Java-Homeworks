@@ -1,0 +1,29 @@
+<form #userFormCreate="ngForm" (ngSubmit)="saveUser()">
+  <input type="text" name="name" [(ngModel)]="user.name" >
+  <input type="number" name="name" [(ngModel)]="user.age">
+  <button>save</button>
+</form>
+
+<hr>
+<div *ngFor="let user of users">
+  id - {{user.id}} name - {{user.name}} age - {{user.age}}
+  <button (click)="getById(user.id)">show more</button>
+</div>
+<hr>
+
+<form #userFormDelete="ngForm" >
+  <select #selected>
+    <option *ngFor="let user of users" [value]="user.id">
+      id - {{user.id}} name - {{user.name}} age - {{user.age}}
+    </option>
+  </select>
+  <button (click)="deleteUser(selected.value)">Delete</button>
+</form>
+
+<hr>
+
+<div *ngIf="chosenUser.name">
+    name - {{chosenUser.name}} age - {{chosenUser.age}}
+</div>
+
+
