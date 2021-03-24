@@ -14,8 +14,8 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
     @Column(unique = true)
+    private String name;
     private String pass;
     private String role = "ROLE_USER";
 
@@ -38,7 +38,7 @@ public class User implements UserDetails {
         this.role = role;
     }
 
-    public void setUserName(String name) {
+    public void setUsername(String name) {
         this.name = name;
     }
 
@@ -85,6 +85,13 @@ public class User implements UserDetails {
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", pass='" + pass + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }
